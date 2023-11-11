@@ -1,3 +1,4 @@
 el proposito de este file es mostrar como implementar INDEXED CHARS en power BI
 
 los indexes charts son una forma mas eficiente de ver los incrementos o decensos respecto a un punto de referencia.
+un indexed chart es basicamente para ver los aumentos o disminuciones en terminos de porcentaje y asi poder tener una perspectiva mas contundente del comportameinto de una grafica
