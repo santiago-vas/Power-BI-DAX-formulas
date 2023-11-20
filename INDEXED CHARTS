@@ -2,3 +2,12 @@ el proposito de este file es mostrar como implementar INDEXED CHARS en power BI
 
 los indexes charts son una forma mas eficiente de ver los incrementos o decensos respecto a un punto de referencia.
 un indexed chart es basicamente para ver los aumentos o disminuciones en terminos de porcentaje y asi poder tener una perspectiva mas contundente del comportameinto de una grafica
+
+esta seria la formula principal para hacer indexed charts en power bi :
+
+
+FREQ users = 
+VAR DATE_BEFORE=CALCULATE(MIN(PRIME_TOTAL_PRIME_ORDERS[DATE]),ALLSELECTED(PRIME_TOTAL_PRIME_ORDERS[DATE]))  //SELECTEDVALUE('OVERVIEW DATES'[DATE])+7
+VAR FREQ_BEFORE= DIVIDE(CALCULATE(SUM(PRIME_TOTAL_PRIME_ORDERS[ACTIVE_USERS_L28D]),ALL(PRIME_TOTAL_PRIME_ORDERS[DATE]),PRIME_TOTAL_PRIME_ORDERS[DATE]=DATE_BEFORE),1)
+VAR PERCENTAGE_VAR= DIVIDE(SUM(PRIME_TOTAL_PRIME_ORDERS[ACTIVE_USERS_L28D]),FREQ_BEFORE)
+RETURN PERCENTAGE_VAR //  IF(SELECTEDVALUE('OVERVIEW DATES'[FIRST_DAY_WEEK])==DATE_BEFORE,100,500)
